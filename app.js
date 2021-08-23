@@ -14,6 +14,7 @@ const methodOverride = require('method-override');
 const passport = require('passport')
 const LocalStrategy = require('passport-local')
 const User = require('./models/user')
+    // const bsCustomFileInput = require('bs-custom-file-input')
 
 // const bodyParser = require('body-parser');
 const userRoutes = require('./routes/users')

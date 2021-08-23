@@ -6,18 +6,12 @@
                 <div>
                     <div class="mb-3">
                         <label class="form-label" for="title">Title</label>
-                        <input class="form-control" type="text" name="title" id="title" required>
+                        <input class="form-control" type="text" name="campground[title]" id="title" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label" for="location">Location</label>
                         <input class="form-control" type="text" name="campground[location]" id="location" required>
                     </div>
-
-                    <div class="mb-3">
-                        <label class="form-label" for="image">Image URL</label>
-                        <input class="form-control" type="text" name="campground[image]" id="image" required>
-                    </div>
-                    <!-- <input type="file" name="image" id="" multiple> -->
                     <div class="mb-3">
                         <label for="price">Campground Price</label>
                         <div class="input-group">
@@ -29,12 +23,20 @@
                         <label class="form-label" for="description">Description</label>
                         <textarea class="form-control" type="text" name="campground[description]" id="description"></textarea>
                     </div>
-                </div>
-                <div class="mb-3">
-                    <button class="btn btn-success">submit</button>
-                </div>
+                    <div class="mb-3">
+                        <div class="form-file custom-file">
+                            <input type="file" class="form-file-input" id="image" name="image" multiple>
+                            <label class="form-file-label" for="image">
+                                <span class="form-file-text custom-file-label">Choose image(s)...</span>
+                                <span class="form-file-button">Browse</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-success">Add Campground</button>
+                    </div>
 
             </form>
             <a href="/campgrounds">All Campgrounds</a>
+            </div>
         </div>
-    </div>
