@@ -3,6 +3,7 @@ if (process.env.NODE_ENV !== 'production') {
 }
 console.log(process.env.secret)
 
+
 const express = require('express');
 const path = require('path')
 const mongoose = require('mongoose');
@@ -20,7 +21,7 @@ const User = require('./models/user')
 const userRoutes = require('./routes/users')
 const campgroundsRoutes = require('./routes/campgrounds');
 const reviewsRoutes = require('./routes/reviews')
-const dbUrl = 'mongodb://localhost:27017/yelp-Camp'
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-Camp'
 const MongoDBStore = require("connect-mongo")(session);
 
 
@@ -47,9 +48,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'))
 app.use(express.static(path.join(__dirname, 'public')))
 
+const Secret = process.env.SECRET || 'this should be a better secret!!';
+
 const store = new MongoDBStore({
-    url: dbUrl,
-    secret: 'this should be a better secret!!',
+    dbUrl,
+    Secret,
     touchAfter: 24 * 60 * 60
 })
 
@@ -59,7 +62,7 @@ store.on('error', function(e) {
 
 const sessionConfig = {
     store,
-    secret: 'this should be a better secret!!',
+    Secret,
     resave: false,
     saveUninitialized: true,
     cookie: {
