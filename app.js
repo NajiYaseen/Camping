@@ -51,7 +51,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 const Secret = process.env.SECRET || 'this should be a better secret!!';
 
 const store = new MongoDBStore({
-    dbUrl,
+    url: dbUrl,
     Secret,
     touchAfter: 24 * 60 * 60
 })
