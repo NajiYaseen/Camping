@@ -22,7 +22,6 @@ module.exports.creatCampground = async(req, res, next) => {
         limit: 1
     }).send()
     const campgrounds = new Campground(req.body.campground)
-    console.log(req.files)
     campgrounds.geometry = geoData.body.features[0].geometry;
     campgrounds.images = req.files.map(f => ({ url: f.path, filename: f.filename }))
     campgrounds.author = req.user.id
@@ -62,11 +61,7 @@ module.exports.renderEditPage = async(req, res, next) => {
 module.exports.editCampground = async(req, res, next) => {
 
     const { id } = req.params;
-    console.log(req.body);
     const campgrounds = await Campground.findByIdAndUpdate(id, {...req.body.campground });
-    // console.log(req.body.campground)
-    // console.log(req.body.images)
-    console.log(req.files)
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
     campgrounds.images.push(...imgs);
     await campgrounds.save();

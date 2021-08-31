@@ -26,7 +26,7 @@ const CampgroundSchema = new Schema({
         }
     },
     price: Number,
-    discription: String,
+    description: String,
     location: String,
     author: {
         type: Schema.Types.ObjectId,

@@ -25,7 +25,7 @@ const seedDb = async() => {
             author: '60df335cab2c673640556dcd',
             location: `${cities[rand].city},${cities[rand].state}`,
             title: `${sample(descriptors)},${sample(places)}`,
-            discription: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem libero nostrum vel impedit asperiores. Possimus tenetur tempore consequatur nulla voluptas, ad illo quam aut recusandae placeat nemo accusamus consequuntur id.',
+            description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rem libero nostrum vel impedit asperiores. Possimus tenetur tempore consequatur nulla voluptas, ad illo quam aut recusandae placeat nemo accusamus consequuntur id.',
             price,
             geometry: {
                 type: "Point",
